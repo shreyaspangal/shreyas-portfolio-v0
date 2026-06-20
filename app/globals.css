@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- color: locked v7 dark palette ---- */
+  --color-bg: #0a0a0b;
+  --color-surface: #161619;
+  --color-elev: #1c1c20;
+  --color-fg: #ececea;
+  --color-muted: #8c8c88;
+  --color-faint: #565654;
+  --color-hairline: rgba(255, 255, 255, 0.09);
+  --color-accent: #34d399;
+  --color-accent-soft: rgba(52, 211, 153, 0.12);
+
+  /* per-project chip colors (data-driven, see lib/work.ts) */
+  --color-chip-care-from: #34d399;
+  --color-chip-care-to: #0f9d6b;
+  --color-chip-lend-from: #fbbf24;
+  --color-chip-lend-to: #d97706;
+  --color-chip-dna-from: #a78bfa;
+  --color-chip-dna-to: #7c3aed;
+  --color-chip-write-from: #38bdf8;
+  --color-chip-write-to: #0284c7;
+  --color-chip-mail-from: #fb7185;
+  --color-chip-mail-to: #e11d48;
+  --color-chip-linkedin-from: #3b82f6;
+  --color-chip-linkedin-to: #0a66c2;
+  --color-chip-x-from: #2a2a2e;
+  --color-chip-x-to: #0b0b0d;
+  --color-chip-github-from: #3f3f46;
+  --color-chip-github-to: #18181b;
+
+  /* ---- type ---- */
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  /* ---- layout ---- */
+  --container-content: 42rem; /* 672px, matches the locked mock */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* dotted separator — the manuarora-derived signature motif between sections */
+  .dotted-sep {
+    height: 4px;
+    opacity: 0.5;
+    background-image: radial-gradient(var(--color-faint) 1px, transparent 1.4px);
+    background-size: 7px 4px;
+    background-position: left center;
+  }
+
+  /* subtle grain texture, restrained per the dark.design reference */
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.045;
+  }
+}
