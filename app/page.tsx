@@ -21,12 +21,8 @@ export default function Home() {
       <header className="flex flex-col gap-3.5 pt-12">
         <PopIn delay={0}>
           <div className="flex items-center gap-2.75">
-            {/* swap for a real photo:
-                <span className="size-10 overflow-hidden rounded-[9px]">
-                  <img src="/me.jpg" alt="Shreyas Pangal" className="size-full object-cover" />
-                </span> */}
-            <span className="flex size-10 shrink-0 items-center justify-center rounded-[9px] border border-hairline bg-gradient-to-br from-elev to-elev font-mono text-sm font-medium text-fg shadow-[0_2px_8px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.1)]">
-              SP
+            <span className="size-10 overflow-hidden rounded-[9px]">
+              <img src="/me.jpeg" alt="Shreyas Pangal" className="size-full object-cover" />
             </span>
             <h1 className="text-[22px] font-semibold tracking-tight">
               Shreyas Pangal
@@ -74,7 +70,7 @@ export default function Home() {
           <p>
             Right now I&apos;m building{" "}
             <a
-              href="https://github.com/shreyaspangal/care-align"
+              href="https://care-align.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"

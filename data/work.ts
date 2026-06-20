@@ -24,7 +24,7 @@ export const work: WorkItem[] = [
     evidenceLabel: "grounded",
     evidenceDetail:
       "every AI-written claim carries a verbatim quote from the source report",
-    href: "https://github.com/shreyaspangal/care-align",
+    href: "https://care-align.vercel.app/",
     chip: "care",
   },
   {
@@ -35,7 +35,7 @@ export const work: WorkItem[] = [
     evidenceLabel: "real-time",
     evidenceDetail:
       "sub-second updates, liquidation-aware states, no stale numbers",
-    href: "#",
+    href: "https://app.superlend.xyz/",
     chip: "lend",
   },
   {
@@ -46,7 +46,7 @@ export const work: WorkItem[] = [
     evidenceLabel: "clinical",
     evidenceDetail:
       "complex results made readable for the people they're actually about",
-    href: "#",
+    href: "https://www.yodadiagnostics.com/",
     chip: "dna",
   },
 ];
