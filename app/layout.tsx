@@ -3,10 +3,30 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
+const title = "Shreyas Pangal — Frontend Engineer";
+const description =
+  "Frontend engineer in Bengaluru building trust-critical, real-time, and AI-assisted product UIs.";
+const url = "https://shreyaspangal.com";
+
 export const metadata: Metadata = {
-  title: "Shreyas Pangal — Frontend Engineer",
-  description:
-    "Frontend engineer in Bengaluru building trust-critical, real-time, and AI-assisted product UIs.",
+  title,
+  description,
+  metadataBase: new URL(url),
+  openGraph: {
+    title,
+    description,
+    url,
+    siteName: "Shreyas Pangal",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    creator: "@ShreyasPangal",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

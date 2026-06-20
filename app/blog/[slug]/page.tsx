@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
@@ -5,6 +6,22 @@ import { mdxComponents } from "@/components/mdx-components";
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  if (!post) return {};
+  return {
+    title: `${post.title} — Shreyas Pangal`,
+    description: post.summary,
+    openGraph: { title: post.title, description: post.summary, type: "article" },
+    twitter: { card: "summary", title: post.title, description: post.summary },
+  };
 }
 
 export default async function BlogPost({
