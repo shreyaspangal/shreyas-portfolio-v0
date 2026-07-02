@@ -62,13 +62,12 @@ export default function Home() {
         <PopIn delay={0.16}>
           <p>
             I&apos;m a frontend engineer in Bengaluru building interfaces
-            for moments where being wrong has a cost — trust-critical,
-            real-time, and AI-assisted product UIs.
+            for trust-critical, and real-time product UIs.
           </p>
         </PopIn>
         <PopIn delay={0.22}>
           <p>
-            Right now I&apos;m in beta with{" "}
+            Currently in beta with{" "}
             <a
               href="https://care-align.vercel.app/"
               target="_blank"
@@ -82,14 +81,14 @@ export default function Home() {
             diagnostics, DeFi, and AI domains.
           </p>
         </PopIn>
-        <PopIn delay={0.25}>
+        {/* <PopIn delay={0.25}>
           <p>
             I got here sideways — a marketing degree, then a few years
             teaching myself to code until it stuck. Outside of work I tinker
             with AI agents, drink more coffee than I should, and play
             badminton on weekends.
           </p>
-        </PopIn>
+        </PopIn> */}
         <PopIn delay={0.28}>
           <p>
             Open to frontend roles and select freelance work.{" "}
