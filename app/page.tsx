@@ -61,7 +61,7 @@ export default function Home() {
       <section className="space-y-3.5 pt-6.5">
         <PopIn delay={0.16}>
           <p>
-            I&apos;m a frontend engineer in Bengaluru who builds interfaces
+            I&apos;m a frontend engineer in Bengaluru building interfaces
             for moments where being wrong has a cost — trust-critical,
             real-time, and AI-assisted product UIs.
           </p>
@@ -77,11 +77,17 @@ export default function Home() {
             >
               CareAlign
             </a>
-            , a tool that makes medical documents readable without inventing
-            things along the way, and refining onboarding and go-to-market
+            , a tool that makes medical documents readable, and refining onboarding and go-to-market
             positioning in parallel. Across four years I&apos;ve worked in
-            diagnostics, DeFi, and AI — domains where the screen is the last
-            thing between a person and a costly misread.
+            diagnostics, DeFi, and AI domains.
+          </p>
+        </PopIn>
+        <PopIn delay={0.25}>
+          <p>
+            I got here sideways — a marketing degree, then a few years
+            teaching myself to code until it stuck. Outside of work I tinker
+            with AI agents, drink more coffee than I should, and play
+            badminton on weekends.
           </p>
         </PopIn>
         <PopIn delay={0.28}>
