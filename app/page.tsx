@@ -68,7 +68,7 @@ export default function Home() {
         </PopIn>
         <PopIn delay={0.22}>
           <p>
-            Right now I&apos;m building{" "}
+            Right now I&apos;m in beta with{" "}
             <a
               href="https://care-align.vercel.app/"
               target="_blank"
@@ -78,14 +78,15 @@ export default function Home() {
               CareAlign
             </a>
             , a tool that makes medical documents readable without inventing
-            things along the way. Across five years I&apos;ve worked in
+            things along the way, and refining onboarding and go-to-market
+            positioning in parallel. Across four years I&apos;ve worked in
             diagnostics, DeFi, and AI — domains where the screen is the last
             thing between a person and a costly misread.
           </p>
         </PopIn>
         <PopIn delay={0.28}>
           <p>
-            Open to senior frontend roles and select freelance work.{" "}
+            Open to frontend roles and select freelance work.{" "}
             <a
               href="#socials"
               className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"

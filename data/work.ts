@@ -18,12 +18,12 @@ export type WorkItem = {
 export const work: WorkItem[] = [
   {
     slug: "carealign",
-    title: "CareAlign",
+    title: "CareAlign (Beta)",
     role: "Frontend & AI engineering",
     period: "2025 — now",
-    evidenceLabel: "grounded",
+    evidenceLabel: "spec-driven",
     evidenceDetail:
-      "every AI-written claim carries a verbatim quote from the source report",
+      "9-entity data model, 7 ADRs, 101 passing tests, Zod schemas throughout",
     href: "https://care-align.vercel.app/",
     chip: "care",
   },
@@ -31,7 +31,7 @@ export const work: WorkItem[] = [
     slug: "superlend",
     title: "Real-time lending interface",
     role: "Superlend",
-    period: "2024 — 25",
+    period: "Aug 2024 — Apr 2026",
     evidenceLabel: "real-time",
     evidenceDetail:
       "sub-second updates, liquidation-aware states, no stale numbers",
