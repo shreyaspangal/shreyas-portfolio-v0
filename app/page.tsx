@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { work } from "@/data/work";
 import { socials } from "@/data/socials";
 import { getAllPosts } from "@/lib/blog";
@@ -11,6 +10,7 @@ import { Chip } from "@/components/chip";
 import { PopIn } from "@/components/pop-in";
 import { Reveal } from "@/components/reveal";
 import { CardGlow } from "@/components/card-glow";
+import { TrackedLink, TrackedAnchor } from "@/components/tracked-link";
 
 export default function Home() {
   const posts = getAllPosts();
@@ -33,24 +33,30 @@ export default function Home() {
         <PopIn delay={0.09}>
           <div className="flex flex-wrap items-center gap-4">
             <nav className="flex items-center gap-4.5">
-              <Link
+              <TrackedLink
                 href="#work"
+                event="nav_link_clicked"
+                properties={{ section: "work" }}
                 className="border-b border-dotted border-transparent text-sm text-muted transition-colors hover:border-accent hover:text-fg"
               >
                 Work
-              </Link>
-              <Link
+              </TrackedLink>
+              <TrackedLink
                 href="#writing"
+                event="nav_link_clicked"
+                properties={{ section: "writing" }}
                 className="border-b border-dotted border-transparent text-sm text-muted transition-colors hover:border-accent hover:text-fg"
               >
                 Writing
-              </Link>
-              <Link
+              </TrackedLink>
+              <TrackedLink
                 href="#socials"
+                event="nav_link_clicked"
+                properties={{ section: "socials" }}
                 className="border-b border-dotted border-transparent text-sm text-muted transition-colors hover:border-accent hover:text-fg"
               >
                 Socials
-              </Link>
+              </TrackedLink>
             </nav>
             <AvailablePill />
           </div>
@@ -68,14 +74,15 @@ export default function Home() {
         <PopIn delay={0.22}>
           <p>
             Currently in beta with{" "}
-            <a
+            <TrackedAnchor
               href="https://care-align.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
+              event="carealign_link_clicked"
               className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"
             >
               CareAlign
-            </a>
+            </TrackedAnchor>
             , a tool that makes medical documents readable, and refining onboarding and go-to-market
             positioning in parallel. Across four years I&apos;ve worked in
             diagnostics, DeFi, and AI domains.
@@ -92,12 +99,13 @@ export default function Home() {
         <PopIn delay={0.28}>
           <p>
             Open to frontend roles and select freelance work.{" "}
-            <a
+            <TrackedAnchor
               href="#socials"
+              event="contact_link_clicked"
               className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"
             >
               Get in touch
-            </a>
+            </TrackedAnchor>
             .
           </p>
         </PopIn>
@@ -129,8 +137,10 @@ export default function Home() {
             ) : (
               posts.map((post) => (
                 <CardGlow key={post.slug} className="-mx-3.5 rounded-[13px]">
-                  <Link
+                  <TrackedLink
                     href={`/blog/${post.slug}`}
+                    event="blog_post_clicked"
+                    properties={{ slug: post.slug, title: post.title }}
                     className="group grid grid-cols-[38px_1fr] items-center gap-4 rounded-[13px] border border-transparent px-3.5 py-4 transition-colors duration-250 hover:border-white/10 hover:bg-white/3"
                   >
                     <Chip variant="write">
@@ -144,7 +154,7 @@ export default function Home() {
                         {post.date}
                       </span>
                     </span>
-                  </Link>
+                  </TrackedLink>
                 </CardGlow>
               ))
             )}

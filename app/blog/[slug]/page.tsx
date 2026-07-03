@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { mdxComponents } from "@/components/mdx-components";
+import { BlogViewTracker } from "@/components/blog-view-tracker";
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -35,6 +36,7 @@ export default async function BlogPost({
 
   return (
     <main className="mx-auto max-w-content px-5 pt-12 pb-16">
+      <BlogViewTracker slug={post.slug} title={post.title} />
       <a
         href="/#writing"
         className="font-mono text-xs text-muted hover:text-accent"

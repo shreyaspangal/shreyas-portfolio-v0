@@ -1,3 +1,6 @@
+"use client";
+
+import posthog from "posthog-js";
 import type { WorkItem } from "@/data/work";
 import { Chip } from "@/components/chip";
 import { WorkIcon } from "@/components/icons";
@@ -10,6 +13,13 @@ export function WorkRow({ item }: { item: WorkItem }) {
         href={item.href}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() =>
+          posthog.capture("work_item_clicked", {
+            title: item.title,
+            slug: item.slug,
+            role: item.role,
+          })
+        }
         className="group flex flex-wrap items-start gap-4 rounded-[13px] border border-transparent px-3.5 py-4 transition-colors duration-250 hover:border-white/10 hover:bg-white/3"
       >
         <span className="mt-px shrink-0 max-sm:w-full">

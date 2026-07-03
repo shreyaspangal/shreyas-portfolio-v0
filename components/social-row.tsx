@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import posthog from "posthog-js";
 import type { SocialLink } from "@/data/socials";
 import { Chip } from "@/components/chip";
 import { SocialIcon } from "@/components/icons";
@@ -10,6 +11,11 @@ export function SocialRow({ link }: { link: SocialLink }) {
   const [copied, setCopied] = useState(false);
 
   async function handleClick(e: React.MouseEvent) {
+    posthog.capture("social_link_clicked", {
+      platform: link.chip,
+      label: link.label,
+    });
+
     if (!link.copyOnClick) return;
     const addr = link.href.replace("mailto:", "");
     if (addr.includes("[")) return; // unfilled placeholder, let it navigate/no-op
@@ -17,6 +23,7 @@ export function SocialRow({ link }: { link: SocialLink }) {
     e.preventDefault();
     await navigator.clipboard.writeText(addr);
     setCopied(true);
+    posthog.capture("email_copied");
     setTimeout(() => setCopied(false), 1600);
   }
 
