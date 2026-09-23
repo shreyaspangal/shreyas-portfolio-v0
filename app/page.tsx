@@ -5,15 +5,42 @@ import { ProjectCard } from "@/components/project-card";
 import { SocialRow } from "@/components/social-row";
 import { SectionLabel } from "@/components/section-label";
 import { DottedSeparator, AvailablePill } from "@/components/decorations";
-import { PencilIcon } from "@/components/icons";
+import { PencilIcon, SocialIcon } from "@/components/icons";
 import { Chip } from "@/components/chip";
 import { PopIn } from "@/components/pop-in";
 import { Reveal } from "@/components/reveal";
 import { CardGlow } from "@/components/card-glow";
 import { TrackedLink, TrackedAnchor } from "@/components/tracked-link";
 
-const contactHref = (chip: SocialLink["chip"]) =>
-  socials.find((link) => link.chip === chip)?.href;
+/** Inline bio link to a social, with its icon as a prefix. */
+function ContactLink({
+  chip,
+  channel,
+  children,
+}: {
+  chip: SocialLink["chip"];
+  channel: string;
+  children: React.ReactNode;
+}) {
+  const href = socials.find((link) => link.chip === chip)?.href;
+  const external = !href?.startsWith("mailto:");
+
+  return (
+    <TrackedAnchor
+      href={href}
+      {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+      event="contact_link_clicked"
+      properties={{ channel }}
+      className="whitespace-nowrap text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"
+    >
+      <SocialIcon
+        chip={chip}
+        className="mr-1 inline-block size-[0.8em] align-[-0.05em] opacity-80"
+      />
+      {children}
+    </TrackedAnchor>
+  );
+}
 
 export default function Home() {
   const posts = getAllPosts();
@@ -93,36 +120,17 @@ export default function Home() {
         <PopIn delay={0.28}>
           <p>
             You can reach me at{" "}
-            <TrackedAnchor
-              href={contactHref("x")}
-              target="_blank"
-              rel="noopener noreferrer"
-              event="contact_link_clicked"
-              properties={{ channel: "x" }}
-              className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"
-            >
+            <ContactLink chip="x" channel="x">
               ShreyasPangal
-            </TrackedAnchor>
+            </ContactLink>
             , via{" "}
-            <TrackedAnchor
-              href={contactHref("mail")}
-              event="contact_link_clicked"
-              properties={{ channel: "email" }}
-              className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"
-            >
+            <ContactLink chip="mail" channel="email">
               email
-            </TrackedAnchor>
+            </ContactLink>
             , or see my code on{" "}
-            <TrackedAnchor
-              href={contactHref("github")}
-              target="_blank"
-              rel="noopener noreferrer"
-              event="contact_link_clicked"
-              properties={{ channel: "github" }}
-              className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"
-            >
+            <ContactLink chip="github" channel="github">
               GitHub
-            </TrackedAnchor>
+            </ContactLink>
             .
           </p>
         </PopIn>
