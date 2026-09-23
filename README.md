@@ -27,17 +27,16 @@ Open `data/projects.ts` and append an object to the `projects` array:
   evidenceLabel: "one-word-claim",
   evidenceDetail: "the specific receipt that backs the claim",
   href: "https://...",
-  chip: "care", // pick an existing chip color, or add a new one (see below)
+  chip: "lend", // picks the card icon: an existing key, or add a new one (see below)
 }
 ```
 
-That's it — the row renders automatically with the icon, gradient chip, and
-hover arrow. No component edits needed.
+That's it — the card renders automatically in the Projects grid with its
+icon, title, and `evidenceDetail` as the description. No component edits needed.
 
-**To add a new chip color:** add a `from`/`to` pair in `app/globals.css`
-under `@theme`, add the key to the `chip` type union in `data/projects.ts`, add
-a matching gradient entry in `components/chip.tsx`, and an icon case in
-`components/icons.tsx`. Four small, mechanical edits — no design decisions.
+**To add a new icon:** add the key to the `chip` type union in
+`data/projects.ts` and a matching case in `ProjectIcon` in
+`components/icons.tsx`. Two small, mechanical edits — no design decisions.
 
 ## Adding a blog post
 
