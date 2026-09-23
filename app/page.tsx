@@ -1,5 +1,5 @@
 import { work } from "@/data/work";
-import { socials } from "@/data/socials";
+import { socials, type SocialLink } from "@/data/socials";
 import { getAllPosts } from "@/lib/blog";
 import { WorkRow } from "@/components/work-row";
 import { SocialRow } from "@/components/social-row";
@@ -11,6 +11,9 @@ import { PopIn } from "@/components/pop-in";
 import { Reveal } from "@/components/reveal";
 import { CardGlow } from "@/components/card-glow";
 import { TrackedLink, TrackedAnchor } from "@/components/tracked-link";
+
+const contactHref = (chip: SocialLink["chip"]) =>
+  socials.find((link) => link.chip === chip)?.href;
 
 export default function Home() {
   const posts = getAllPosts();
@@ -73,19 +76,10 @@ export default function Home() {
         </PopIn>
         <PopIn delay={0.22}>
           <p>
-            Currently in beta with{" "}
-            <TrackedAnchor
-              href="https://care-align.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              event="carealign_link_clicked"
-              className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"
-            >
-              CareAlign
-            </TrackedAnchor>
-            , a tool that makes medical documents readable, and refining onboarding and go-to-market
-            positioning in parallel. Across four years I&apos;ve worked in
-            diagnostics, DeFi, and AI domains.
+            I like building things people actually enjoy using: small,
+            finished, and out in the world rather than sitting in a branch.
+            Most of the work goes into the details nobody is meant to notice,
+            which is the part I like most.
           </p>
         </PopIn>
         {/* <PopIn delay={0.25}>
@@ -98,13 +92,36 @@ export default function Home() {
         </PopIn> */}
         <PopIn delay={0.28}>
           <p>
-            Open to frontend roles and select freelance work.{" "}
+            You can reach me at{" "}
             <TrackedAnchor
-              href="#socials"
+              href={contactHref("x")}
+              target="_blank"
+              rel="noopener noreferrer"
               event="contact_link_clicked"
+              properties={{ channel: "x" }}
               className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"
             >
-              Get in touch
+              ShreyasPangal
+            </TrackedAnchor>
+            , via{" "}
+            <TrackedAnchor
+              href={contactHref("mail")}
+              event="contact_link_clicked"
+              properties={{ channel: "email" }}
+              className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"
+            >
+              email
+            </TrackedAnchor>
+            , or see my code on{" "}
+            <TrackedAnchor
+              href={contactHref("github")}
+              target="_blank"
+              rel="noopener noreferrer"
+              event="contact_link_clicked"
+              properties={{ channel: "github" }}
+              className="text-fg underline decoration-accent decoration-dotted underline-offset-3 hover:text-accent"
+            >
+              GitHub
             </TrackedAnchor>
             .
           </p>

@@ -20,9 +20,8 @@ Custom events (all in `components/tracked-link.tsx`, `social-row.tsx`, `work-row
 | Event | Fires when | Key properties |
 |---|---|---|
 | `nav_link_clicked` | Work/Writing/Socials header nav clicked | `section` |
-| `carealign_link_clicked` | CareAlign link in bio clicked | — |
-| `contact_link_clicked` | "Get in touch" link clicked | — |
-| `work_item_clicked` | A project row (CareAlign/Superlend/Yoda) clicked | `title`, `slug`, `role` |
+| `contact_link_clicked` | X / email / GitHub link in bio clicked | `channel` |
+| `work_item_clicked` | A project row (Superlend/Yoda) clicked | `title`, `slug`, `role` |
 | `blog_post_clicked` | Blog post card clicked from the list | `slug`, `title` |
 | `blog_post_viewed` | Blog post page actually loads | `slug`, `title` |
 | `social_link_clicked` | Any social row clicked (email/LinkedIn/Twitter/GitHub) | `platform`, `label` |

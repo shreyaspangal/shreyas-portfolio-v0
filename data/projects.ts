@@ -17,17 +17,6 @@ export type WorkItem = {
  */
 export const work: WorkItem[] = [
   {
-    slug: "carealign",
-    title: "CareAlign (Beta)",
-    role: "Frontend & AI engineering",
-    period: "2026",
-    evidenceLabel: "spec-driven",
-    evidenceDetail:
-      "Unified health record management, with AI-assisted document parsing and summarization",
-    href: "https://care-align.vercel.app/",
-    chip: "care",
-  },
-  {
     slug: "superlend",
     title: "Superlend",
     role: "Real-time lending interface",
