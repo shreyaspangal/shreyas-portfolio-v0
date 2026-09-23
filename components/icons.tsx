@@ -1,10 +1,10 @@
-import type { WorkItem } from "@/data/work";
+import type { Project } from "@/data/projects";
 import type { SocialLink } from "@/data/socials";
 
-type WorkIconProps = { chip: WorkItem["chip"]; className?: string };
+type ProjectIconProps = { chip: Project["chip"]; className?: string };
 
-/** Solid icon per project domain. Add a case here when you add a new chip key in data/work.ts. */
-export function WorkIcon({ chip, className }: WorkIconProps) {
+/** Solid icon per project domain. Add a case here when you add a new chip key in data/projects.ts. */
+export function ProjectIcon({ chip, className }: ProjectIconProps) {
   switch (chip) {
     case "care":
       return (

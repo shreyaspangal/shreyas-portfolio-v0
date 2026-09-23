@@ -1,4 +1,4 @@
-export type WorkItem = {
+export type Project = {
   slug: string;
   title: string;
   role: string;
@@ -12,10 +12,10 @@ export type WorkItem = {
 
 /**
  * Add a new project by appending an object here.
- * Then add a matching icon case in components/work-icon.tsx
+ * Then add a matching icon case in components/icons.tsx
  * and a matching gradient pair in app/globals.css if it needs a new color.
  */
-export const work: WorkItem[] = [
+export const projects: Project[] = [
   {
     slug: "superlend",
     title: "Superlend",

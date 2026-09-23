@@ -7,9 +7,9 @@ The wizard has completed a deep integration of PostHog into your Next.js portfol
 |---|---|---|
 | `social_link_clicked` | User clicks on a social link row (email, LinkedIn, Twitter, or GitHub). | `components/social-row.tsx` |
 | `email_copied` | User copies the email address to their clipboard via the social row. | `components/social-row.tsx` |
-| `work_item_clicked` | User clicks on a work/project row to visit the external project URL. | `components/work-row.tsx` |
+| `work_item_clicked` | User clicks on a project card to visit the external project URL. | `components/project-card.tsx` |
 | `blog_post_clicked` | User clicks on a blog post card to read the full article. | `app/page.tsx` |
-| `nav_link_clicked` | User clicks a navigation anchor link (Work, Writing, or Socials). | `app/page.tsx` |
+| `nav_link_clicked` | User clicks a navigation anchor link (Projects, Writing, or Socials). | `app/page.tsx` |
 | `carealign_link_clicked` | User clicks the CareAlign inline link in the bio section. | `app/page.tsx` |
 | `contact_link_clicked` | User clicks the 'Get in touch' anchor link at the bottom of the bio. | `app/page.tsx` |
 | `blog_post_viewed` | User views a blog post page — top of the reading funnel. | `app/blog/[slug]/page.tsx` |

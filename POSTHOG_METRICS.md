@@ -15,13 +15,13 @@ Automatic (no code, PostHog default capture):
 - Web Analytics tab in PostHog (pageviews, sessions, referrers, top pages, bounce rate, device/browser/country breakdown) — this is free and needs zero extra setup, check it before building custom insights
 - Exception capture (`capture_exceptions: true`) — client JS errors show up in PostHog's Error Tracking automatically
 
-Custom events (all in `components/tracked-link.tsx`, `social-row.tsx`, `work-row.tsx`, `blog-view-tracker.tsx`, `app/page.tsx`):
+Custom events (all in `components/tracked-link.tsx`, `social-row.tsx`, `project-card.tsx`, `blog-view-tracker.tsx`, `app/page.tsx`):
 
 | Event | Fires when | Key properties |
 |---|---|---|
-| `nav_link_clicked` | Work/Writing/Socials header nav clicked | `section` |
+| `nav_link_clicked` | Projects/Writing/Socials header nav clicked | `section` |
 | `contact_link_clicked` | X / email / GitHub link in bio clicked | `channel` |
-| `work_item_clicked` | A project row (Superlend/Yoda) clicked | `title`, `slug`, `role` |
+| `work_item_clicked` | A project card (Superlend/Yoda) clicked — name predates the Work → Projects rename, kept so existing insights keep working | `title`, `slug`, `role` |
 | `blog_post_clicked` | Blog post card clicked from the list | `slug`, `title` |
 | `blog_post_viewed` | Blog post page actually loads | `slug`, `title` |
 | `social_link_clicked` | Any social row clicked (email/LinkedIn/Twitter/GitHub) | `platform`, `label` |
@@ -47,7 +47,7 @@ Pre-built dashboard/insights (created during setup, in the PostHog project):
 - **Session recordings** — free tier includes 5,000/month, which is far more than a portfolio will use. Turn on in PostHog project settings if you ever want to watch someone actually browse the site (e.g. after a redesign, to see if the new layout confuses anyone). Off by default; enabling doesn't require a code change.
 - **Feature flags / A/B tests** — if you ever want to test two versions of the bio copy or headline, PostHog flags can drive that without a deploy. Not worth setting up until there's an actual variant to test.
 - **UTM/campaign tracking** — if you start sharing this link with a `?utm_source=...` (e.g. in a job application, a tweet, a newsletter), PostHog captures UTM params automatically on `$pageview` — no code needed, just start appending UTM params to links you share and filter by them in Web Analytics.
-- **Resume/CV download event** — not applicable yet since there's no resume link on the site today; if one gets added, wrap it the same way as `work-row.tsx` (`posthog.capture("resume_downloaded")`).
+- **Resume/CV download event** — not applicable yet since there's no resume link on the site today; if one gets added, wrap it the same way as `project-card.tsx` (`posthog.capture("resume_downloaded")`).
 
 ## Things intentionally left out
 

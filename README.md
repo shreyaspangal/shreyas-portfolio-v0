@@ -16,7 +16,7 @@ Open http://localhost:3000.
 
 ## Adding a project
 
-Open `data/work.ts` and append an object to the `work` array:
+Open `data/projects.ts` and append an object to the `projects` array:
 
 ```ts
 {
@@ -35,7 +35,7 @@ That's it — the row renders automatically with the icon, gradient chip, and
 hover arrow. No component edits needed.
 
 **To add a new chip color:** add a `from`/`to` pair in `app/globals.css`
-under `@theme`, add the key to the `chip` type union in `data/work.ts`, add
+under `@theme`, add the key to the `chip` type union in `data/projects.ts`, add
 a matching gradient entry in `components/chip.tsx`, and an icon case in
 `components/icons.tsx`. Four small, mechanical edits — no design decisions.
 
@@ -65,7 +65,7 @@ Search the repo for `[` to find every placeholder needing a real value:
 - `app/page.tsx` — avatar image comment, if you want a photo instead of "SP"
 - `data/socials.ts` — email, LinkedIn URL/handle, Twitter URL/handle
 - `data/blog/on-not-outsourcing-judgment.mdx` — date + actual post content
-- `data/work.ts` — confirm project years/hrefs are accurate
+- `data/projects.ts` — confirm project years/hrefs are accurate
 
 ## Honest flags
 

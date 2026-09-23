@@ -1,7 +1,7 @@
-import { work } from "@/data/work";
+import { projects } from "@/data/projects";
 import { socials, type SocialLink } from "@/data/socials";
 import { getAllPosts } from "@/lib/blog";
-import { WorkRow } from "@/components/work-row";
+import { ProjectCard } from "@/components/project-card";
 import { SocialRow } from "@/components/social-row";
 import { SectionLabel } from "@/components/section-label";
 import { DottedSeparator, AvailablePill } from "@/components/decorations";
@@ -37,12 +37,12 @@ export default function Home() {
           <div className="flex flex-wrap items-center gap-4">
             <nav className="flex items-center gap-4.5">
               <TrackedLink
-                href="#work"
+                href="#projects"
                 event="nav_link_clicked"
-                properties={{ section: "work" }}
+                properties={{ section: "projects" }}
                 className="border-b border-dotted border-transparent text-sm text-muted transition-colors hover:border-accent hover:text-fg"
               >
-                Work
+                Projects
               </TrackedLink>
               <TrackedLink
                 href="#writing"
@@ -130,13 +130,13 @@ export default function Home() {
 
       <DottedSeparator />
 
-      {/* work */}
-      <section id="work">
+      {/* projects */}
+      <section id="projects">
         <Reveal>
-          <SectionLabel>Work</SectionLabel>
+          <SectionLabel>Projects</SectionLabel>
           <div className="flex flex-col gap-1.5">
-            {work.map((item) => (
-              <WorkRow key={item.slug} item={item} />
+            {projects.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
             ))}
           </div>
         </Reveal>
