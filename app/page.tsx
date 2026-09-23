@@ -95,16 +95,10 @@ export default function Home() {
 
       {/* bio: conversational, inline links carry the positioning */}
       <section className="space-y-3.5 pt-6.5">
-        <PopIn delay={0.16}>
-          <p>
-            I&apos;m a frontend engineer in Bengaluru building interfaces
-            for trust-critical, and real-time product UIs.
-          </p>
-        </PopIn>
         <PopIn delay={0.22}>
           <p>
-            I like building things people actually enjoy using: small,
-            finished, and out in the world rather than sitting in a branch.
+            I&apos;m a fullstack engineer. I like building things people enjoy using: small,
+            finished, and out in the world.
             Most of the work goes into the details nobody is meant to notice,
             which is the part I like most.
           </p>

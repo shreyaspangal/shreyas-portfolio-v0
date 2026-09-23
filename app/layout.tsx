@@ -3,9 +3,9 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
-const title = "Shreyas Pangal — Frontend Engineer";
+const title = "Shreyas Pangal — Fullstack Engineer";
 const description =
-  "Frontend engineer in Bengaluru building trust-critical, real-time, and AI-assisted product UIs.";
+  "Fullstack engineer in Bengaluru building trust-critical, real-time, and AI-assisted product UIs.";
 const url = "https://shreyaspangal.com";
 
 export const metadata: Metadata = {
