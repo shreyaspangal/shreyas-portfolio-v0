@@ -12,12 +12,13 @@ export function ProjectIcon({ chip, className }: ProjectIconProps) {
           <path d="M9.6 2.4h4.8a1.2 1.2 0 0 1 1.2 1.2v4.8h4.8a1.2 1.2 0 0 1 1.2 1.2v4.8a1.2 1.2 0 0 1-1.2 1.2h-4.8v4.8a1.2 1.2 0 0 1-1.2 1.2H9.6a1.2 1.2 0 0 1-1.2-1.2v-4.8H3.6a1.2 1.2 0 0 1-1.2-1.2V9.6a1.2 1.2 0 0 1 1.2-1.2h4.8V3.6a1.2 1.2 0 0 1 1.2-1.2z" />
         </svg>
       );
-    case "lend":
+    case "write":
       return (
         <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-          <rect x="2.5" y="12" width="4.4" height="9.5" rx="1.3" />
-          <rect x="9.8" y="6" width="4.4" height="15.5" rx="1.3" />
-          <rect x="17.1" y="2.5" width="4.4" height="19" rx="1.3" />
+          <rect x="5.5" y="2.5" width="3.2" height="19" rx="1.2" />
+          <rect x="2.5" y="2.5" width="9.2" height="3" rx="1.2" />
+          <rect x="2.5" y="18.5" width="9.2" height="3" rx="1.2" />
+          <path d="M17.5 3.5l1.1 2.9 2.9 1.1-2.9 1.1-1.1 2.9-1.1-2.9-2.9-1.1 2.9-1.1z" />
         </svg>
       );
     case "dna":

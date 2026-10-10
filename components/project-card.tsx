@@ -1,23 +1,14 @@
-"use client";
-
-import posthog from "posthog-js";
 import type { Project } from "@/data/projects";
 import { ProjectIcon } from "@/components/icons";
 import { CardGlow } from "@/components/card-glow";
+import { TrackedLink } from "@/components/tracked-link";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={() =>
-        posthog.capture("work_item_clicked", {
-          title: project.title,
-          slug: project.slug,
-          role: project.role,
-        })
-      }
+    <TrackedLink
+      href={`/projects/${project.slug}`}
+      event="work_item_clicked"
+      properties={{ title: project.title, slug: project.slug, role: project.role }}
       className="group block rounded-[20px] border border-hairline p-1.25 transition-colors duration-250 hover:border-white/15"
     >
       <CardGlow className="h-full rounded-2xl border border-white/8 bg-surface">
@@ -36,6 +27,6 @@ export function ProjectCard({ project }: { project: Project }) {
           </span>
         </span>
       </CardGlow>
-    </a>
+    </TrackedLink>
   );
 }

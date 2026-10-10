@@ -5,27 +5,41 @@ export type Project = {
   period: string;
   evidenceLabel: string;
   evidenceDetail: string;
-  href: string;
+  /** square image in public/, shown at 40x40 on the project page */
+  cover: string;
+  /** paragraphs for the project page: what it's for and what you can do with it */
+  brief: string[];
+  preview: string;
+  /** omit when the code isn't public; the project page hides the link */
+  github?: string;
   /** key into the chip-* color tokens defined in app/globals.css */
-  chip: "care" | "lend" | "dna";
+  chip: "care" | "dna" | "write";
 };
 
 /**
  * Add a new project by appending an object here.
  * Then add a matching icon case in components/icons.tsx
  * and a matching gradient pair in app/globals.css if it needs a new color.
+ * Its page at /projects/[slug] is generated from this entry.
  */
 export const projects: Project[] = [
   {
-    slug: "superlend",
-    title: "Superlend",
-    role: "Real-time lending interface",
-    period: "Aug 2024 — Apr 2026",
-    evidenceLabel: "real-time",
+    slug: "plasis",
+    title: "Plasis",
+    role: "Text-to-UI intent interface",
+    period: "Oct 2026",
+    evidenceLabel: "intent",
     evidenceDetail:
-      "aggregated real-time data, liquidation-aware states, no stale numbers",
-    href: "https://app.superlend.xyz/",
-    chip: "lend",
+      "type what you need, get the right card; two intents in one line become two cards",
+    cover: "/projects/plasis.png",
+    brief: [
+      "Plasis is one text box that turns what you type into the right card, with no type, mode or menu to pick first. Write \"dinner with priya friday 8pm on zoom\" and you get an event with the day, time, person and a video-call badge already filled in.",
+      "It covers events, reminders, work items, checklists, bill splits, expenses, unit conversions, time zones, polls and more. Type two things in one line, like \"lunch with sam friday 1pm and remind me to book a table\", and you get two cards. When it spots something it won't set on its own, it asks \"Did you mean?\" instead of guessing.",
+      "A model picks the card and code works out the values, so dates, amounts and math are always exact. It runs fully offline by default, and your saved cards stay in your browser.",
+    ],
+    preview: "https://plasisui.vercel.app",
+    github: "https://github.com/shreyaspangal/plasis",
+    chip: "write",
   },
   {
     slug: "yoda-diagnostics",
@@ -35,7 +49,15 @@ export const projects: Project[] = [
     evidenceLabel: "clinical",
     evidenceDetail:
       "complex results made readable for the people they're actually about",
-    href: "https://www.yodadiagnostics.com/",
+    cover: "/projects/yoda-diagnostics.png",
+    brief: [
+      "Leveraging genomics data, DNA Decoder identifies disease risks, enhances medication safety, and tailors lifestyle choices for optimal health.",
+    ],
+    preview: "https://www.yodadiagnostics.com/",
     chip: "dna",
   },
 ];
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}
