@@ -1,33 +1,4 @@
-import type { Project } from "@/data/projects";
 import type { SocialLink } from "@/data/socials";
-
-type ProjectIconProps = { chip: Project["chip"]; className?: string };
-
-/** Solid icon per project domain. Add a case here when you add a new chip key in data/projects.ts. */
-export function ProjectIcon({ chip, className }: ProjectIconProps) {
-  switch (chip) {
-    case "care":
-      return (
-        <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-          <path d="M9.6 2.4h4.8a1.2 1.2 0 0 1 1.2 1.2v4.8h4.8a1.2 1.2 0 0 1 1.2 1.2v4.8a1.2 1.2 0 0 1-1.2 1.2h-4.8v4.8a1.2 1.2 0 0 1-1.2 1.2H9.6a1.2 1.2 0 0 1-1.2-1.2v-4.8H3.6a1.2 1.2 0 0 1-1.2-1.2V9.6a1.2 1.2 0 0 1 1.2-1.2h4.8V3.6a1.2 1.2 0 0 1 1.2-1.2z" />
-        </svg>
-      );
-    case "lend":
-      return (
-        <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-          <rect x="2.5" y="12" width="4.4" height="9.5" rx="1.3" />
-          <rect x="9.8" y="6" width="4.4" height="15.5" rx="1.3" />
-          <rect x="17.1" y="2.5" width="4.4" height="19" rx="1.3" />
-        </svg>
-      );
-    case "dna":
-      return (
-        <svg viewBox="0 0 24 24" className={className} fill="currentColor">
-          <path d="M12 2.2c0 0 7 8.1 7 12.6a7 7 0 0 1-14 0C5 10.3 12 2.2 12 2.2z" />
-        </svg>
-      );
-  }
-}
 
 type SocialIconProps = { chip: SocialLink["chip"]; className?: string };
 

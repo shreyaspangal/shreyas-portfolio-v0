@@ -15,13 +15,15 @@ Automatic (no code, PostHog default capture):
 - Web Analytics tab in PostHog (pageviews, sessions, referrers, top pages, bounce rate, device/browser/country breakdown) — this is free and needs zero extra setup, check it before building custom insights
 - Exception capture (`capture_exceptions: true`) — client JS errors show up in PostHog's Error Tracking automatically
 
-Custom events (all in `components/tracked-link.tsx`, `social-row.tsx`, `project-card.tsx`, `blog-view-tracker.tsx`, `app/page.tsx`):
+Custom events (all in `components/tracked-link.tsx`, `social-row.tsx`, `project-card.tsx`, `project-review.tsx`, `blog-view-tracker.tsx`, `app/page.tsx`, `app/projects/[slug]/page.tsx`):
 
 | Event | Fires when | Key properties |
 |---|---|---|
 | `nav_link_clicked` | Projects/Writing/Socials header nav clicked | `section` |
 | `contact_link_clicked` | X / email / GitHub link in bio clicked | `channel` |
-| `work_item_clicked` | A project card (Superlend/Yoda) clicked — name predates the Work → Projects rename, kept so existing insights keep working | `title`, `slug`, `role` |
+| `work_item_clicked` | A project card clicked (opens its `/projects/[slug]` page) — name predates the Work → Projects rename, kept so existing insights keep working | `title`, `slug`, `role` |
+| `project_link_clicked` | Preview or GitHub link clicked on a project page | `slug`, `link` (`preview` / `github`) |
+| `project_reviewed` | A review was saved (fires only after the server confirms). Analytics copy only: the source of truth is the `reviews` table in Neon (`db/schema.sql`) | `slug`, `title`, `rating` (1–5), `review` |
 | `blog_post_clicked` | Blog post card clicked from the list | `slug`, `title` |
 | `blog_post_viewed` | Blog post page actually loads | `slug`, `title` |
 | `social_link_clicked` | Any social row clicked (email/LinkedIn/Twitter/GitHub) | `platform`, `label` |
