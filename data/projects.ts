@@ -5,22 +5,22 @@ export type Project = {
   period: string;
   evidenceLabel: string;
   evidenceDetail: string;
-  /** square image in public/, shown at 40x40 on the project page */
-  cover: string;
+  /**
+   * Looping preview, as a path prefix in public/ (no extension).
+   * Expects <video>.mp4, <video>.webm and <video>-poster.jpg, 960x608.
+   */
+  video: string;
   /** paragraphs for the project page: what it's for and what you can do with it */
   brief: string[];
   preview: string;
   /** omit when the code isn't public; the project page hides the link */
   github?: string;
-  /** key into the chip-* color tokens defined in app/globals.css */
-  chip: "care" | "dna" | "write";
 };
 
 /**
- * Add a new project by appending an object here.
- * Then add a matching icon case in components/icons.tsx
- * and a matching gradient pair in app/globals.css if it needs a new color.
- * Its page at /projects/[slug] is generated from this entry.
+ * Add a new project by appending an object here and dropping its preview
+ * video files into public/projects/. Its page at /projects/[slug] is
+ * generated from this entry.
  */
 export const projects: Project[] = [
   {
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     evidenceLabel: "intent",
     evidenceDetail:
       "type what you need, get the right card; two intents in one line become two cards",
-    cover: "/projects/plasis.png",
+    video: "/projects/plasis",
     brief: [
       "Plasis is one text box that turns what you type into the right card, with no type, mode or menu to pick first. Write \"dinner with priya friday 8pm on zoom\" and you get an event with the day, time, person and a video-call badge already filled in.",
       "It covers events, reminders, work items, checklists, bill splits, expenses, unit conversions, time zones, polls and more. Type two things in one line, like \"lunch with sam friday 1pm and remind me to book a table\", and you get two cards. When it spots something it won't set on its own, it asks \"Did you mean?\" instead of guessing.",
@@ -39,7 +39,6 @@ export const projects: Project[] = [
     ],
     preview: "https://plasisui.vercel.app",
     github: "https://github.com/shreyaspangal/plasis",
-    chip: "write",
   },
   {
     slug: "yoda-diagnostics",
@@ -49,12 +48,11 @@ export const projects: Project[] = [
     evidenceLabel: "clinical",
     evidenceDetail:
       "complex results made readable for the people they're actually about",
-    cover: "/projects/yoda-diagnostics.png",
+    video: "/projects/yoda-diagnostics",
     brief: [
       "Leveraging genomics data, DNA Decoder identifies disease risks, enhances medication safety, and tailors lifestyle choices for optimal health.",
     ],
     preview: "https://www.yodadiagnostics.com/",
-    chip: "dna",
   },
 ];
 

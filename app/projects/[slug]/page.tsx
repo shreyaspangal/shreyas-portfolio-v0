@@ -7,6 +7,7 @@ import { DottedSeparator } from "@/components/decorations";
 import { SocialIcon } from "@/components/icons";
 import { TrackedAnchor } from "@/components/tracked-link";
 import { ProjectReview } from "@/components/project-review";
+import { LoopVideo } from "@/components/loop-video";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -48,13 +49,11 @@ export default async function ProjectPage({
 
       <header className="mt-6 flex flex-col gap-3.5">
         <PopIn delay={0}>
-          <img
-            src={project.cover}
-            alt=""
-            width={40}
-            height={40}
-            className="size-10 rounded-[9px] object-cover"
-          />
+          <div className="rounded-[20px] border border-hairline p-1.25">
+            <div className="overflow-hidden rounded-2xl border border-white/8">
+              <LoopVideo src={project.video} label={`${project.title} in action`} />
+            </div>
+          </div>
         </PopIn>
         <PopIn delay={0.07}>
           <h1 className="text-2xl font-semibold tracking-tight">{project.title}</h1>
