@@ -43,14 +43,15 @@ export const projects: Project[] = [
   {
     slug: "yoda-diagnostics",
     title: "Yoda Diagnostics",
-    role: "Genomic results portal",
+    role: "Clinical pathology, radiology & blood tests",
     period: "2022 — 24",
     evidenceLabel: "clinical",
     evidenceDetail:
-      "complex results made readable for the people they're actually about",
+      "pathology, blood tests, radiology and molecular diagnostics across India",
     video: "/projects/yoda-diagnostics",
     brief: [
-      "Leveraging genomics data, DNA Decoder identifies disease risks, enhances medication safety, and tailors lifestyle choices for optimal health.",
+      "Yoda Diagnostics delivers clinical pathology, blood testing, molecular diagnostics, and radiology services across India.",
+      "From the site you can book a test or a full body checkup, get samples collected at home, find MRI and CT scans, and download your reports online, all from an NABL-accredited lab.",
     ],
     preview: "https://www.yodadiagnostics.com/",
   },
