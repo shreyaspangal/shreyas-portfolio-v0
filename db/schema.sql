@@ -8,3 +8,7 @@ create table if not exists reviews (
 );
 
 create index if not exists reviews_project_created_at_idx on reviews (project, created_at desc);
+
+-- Rate limiting: HMAC-SHA256 of the visitor's IP (keyed with IP_HASH_SECRET), never the raw IP.
+alter table reviews add column if not exists ip_hash text;
+create index if not exists reviews_ip_hash_created_at_idx on reviews (ip_hash, created_at desc);
